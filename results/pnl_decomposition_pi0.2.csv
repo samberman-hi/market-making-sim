@@ -1,0 +1,5 @@
+strategy,spread capture,adverse selection,inventory carry,total
+Avellaneda-Stoikov,89.776,-82.786,0.22,7.21
+Naive symmetric,96.456,-84.48,-2.579,9.397
+A-S + limits,88.897,-81.902,0.094,7.089
+Adaptive (toxicity),81.56,-54.591,0.263,27.232

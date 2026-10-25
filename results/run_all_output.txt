@@ -1,0 +1,58 @@
+
+(i) Avellaneda-Stoikov (2008) replication, 2000 paths
+ gamma  strategy  avg spread  mean P&L  std P&L  mean final q  std final q  paper mean P&L  paper std P&L  paper std q
+  0.01 Inventory        1.35     68.34     9.19         -0.16         5.34           66.78           8.76         4.70
+  0.01 Symmetric        1.33     68.50    13.67         -0.17         8.75           67.36          13.40         8.65
+  0.10 Inventory        1.49     64.89     6.69         -0.03         2.99           62.94           5.89         2.80
+  0.10 Symmetric        1.29     68.50    13.79         -0.22         8.82           67.21          13.43         8.66
+  0.50 Inventory        2.16     48.71     6.10          0.00         1.95           33.92           4.72         1.88
+  0.50 Symmetric        1.15     67.96    14.01         -0.20         9.21           66.20          14.53         8.67
+  note: symmetric with the inventory strategy's true average spread at gamma=0.5 (2.16): mean 60.1, std 12.9
+  saved figures/pnl_distributions.png
+
+(iii) Sample path
+  saved figures/sample_path.png
+
+(iv) Sharpe vs risk aversion
+  best Sharpe 9.67 at gamma=0.095 (symmetric with same spread: 5.07)
+  saved figures/risk_aversion_frontier.png
+
+(v) Adverse selection: informed-trader fraction pi (J = 1.5)
+strategy  A-S + limits  Adaptive (toxicity)  Avellaneda-Stoikov  Naive symmetric
+pi                                                                              
+0.00              64.7                 64.7                64.9             68.1
+0.05              50.1                 50.0                50.3             54.8
+0.10              35.7                 39.4                35.9             40.4
+0.15              20.8                 32.2                20.9             25.8
+0.20               7.1                 27.2                 7.2              9.4
+0.25              -7.4                 24.1                -7.5             -5.0
+0.30             -22.2                 21.6               -22.3            -17.6
+0.35             -35.4                 18.3               -35.8            -29.0
+0.40             -48.8                 16.7               -49.5            -42.2
+
+  P&L decomposition at pi = 0.2:
+           strategy  spread capture  adverse selection  inventory carry  total
+ Avellaneda-Stoikov            89.8              -82.8              0.2    7.2
+    Naive symmetric            96.5              -84.5             -2.6    9.4
+       A-S + limits            88.9              -81.9              0.1    7.1
+Adaptive (toxicity)            81.6              -54.6              0.3   27.2
+  saved figures/informed_traders.png
+  saved figures/pnl_decomposition.png
+
+(vi) Break-even half-spread vs pi
+  pi  theory  simulated  Glosten-Milgrom pi*J
+0.05   0.085      0.072                 0.075
+0.10   0.194      0.201                 0.150
+0.15   0.341      0.365                 0.225
+0.20   0.539      0.534                 0.300
+0.25   0.773      0.758                 0.375
+0.30   0.972      1.010                 0.450
+0.35   1.110      1.126                 0.525
+0.40   1.203      1.196                 0.600
+  saved figures/break_even_spread.png
+
+========================================================================
+SUMMARY
+A-S gamma=0.1: mean 64.9 std 6.7 | symmetric: mean 68.5 std 13.8 -> std cut by 51%
+At pi=0.3: Avellaneda-Stoikov: -22.3, Naive symmetric: -17.6, A-S + limits: -22.2, Adaptive (toxicity): 21.6
+Done in 13s
